@@ -1,7 +1,7 @@
 const blurButton = document.getElementById("blur-button");
 const imagePlace = document.getElementById("image-place");
 const scorePlace = document.getElementById("score-place");
-let chances = 6;
+let chances = 7;
 let clarity = 9;
 let data = {
   imageclarity: clarity,
