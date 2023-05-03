@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bruno Ace', cursive;
+
+        }
+
+        body {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+
+        }
+
+        button {
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        #thankyou,
+        #score {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h4 id="thankyou">Thanks for playing</h4>
+    <h4 id="score"></h4>
+    <button type="button" onclick="resetgame()">Reset</button>
+</body>
+<script>
+    const score = localStorage.getItem('score');
+    const name = localStorage.getItem('name')
+    document.getElementById('score').innerHTML = ` your score: ${score}`
+    function resetgame() {
+        localStorage.setItem('score', "0");
+        localStorage.setItem('name', "");
+        window.location.href = '/'
+    }
+</script>
+
+</html>

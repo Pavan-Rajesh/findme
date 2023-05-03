@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="left">
+        <h1>Rules</h1>
+        <ul>
+            <li>
+                you will be given an image and have to find a person in the image
+            </li>
+            <li>
+                initially you will be given a score of 200
+            </li>
+            <li>
+                for every increase in resolution your score will be decreased by 10
+            </li>
+            <li>
+                for every wrong answer your score will be decreased by 5
+            </li>
+            <li>
+                you can increase resolution of image by seven times only
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <div>
+            <label for="username">Enter your name</label>
+            <br>
+            <input type="text" id="username">
+        </div>
+        <div>
+            <button type="button" onclick="setscore()">Enter Game</button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    const username = document.getElementById("username");
+    function setscore() {
+        localStorage.setItem("score", "200");
+        localStorage.setItem("name", username.value);
+        window.location.href = "/blur1"
+    }
+</script>
+
+</html>

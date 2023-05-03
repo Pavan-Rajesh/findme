@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image blur</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <img src="images/before.jpg" id="image-place">
+    </div>
+    <div class="right">
+        <div class="score-container">
+            <h3>Your score</h3>
+            <h4 id="score-place">200</h4>
+        </div>
+        <div>
+            <label for="hero">Choose hero from this list</label>
+            <input list="heros" name="hero" id="hero">
+
+            <datalist id="heros">
+                <option value="alluarjun">
+                <option value="varuntej">
+                <option value="Rahul Ravindran">
+                <option value="Ram">
+
+                <option value="Suriya">
+                <option value="dhanush">
+                <option value="johnson">
+                <option value="Nani">
+                <option value="Prabhas">
+
+                <option value="madhavan">
+                <option value="chaitanya">
+                <option value="akhil">
+                <option value="Maheshbabu"></option>
+            </datalist>
+
+
+        </div>
+        <div class="buttons">
+            <button onclick="checkanswer()">checkanswer</button>
+            <button id="blur-button">Increase resolution</button>
+        </div>
+    </div>
+    <script src="js/1.js"></script>
+
+</body>
+
+</html>

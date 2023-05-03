@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bruno Ace', cursive;
+}
+
+body {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 100vh;
+}
+
+button {
+    padding: 20px;
+    border-radius: 5px;
+}
+
+input {
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+
+.left {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-direction: column;
+
+}
+
+.left ul li {
+    margin: 20px
+}
+
+.right {
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-direction: column;
+}
