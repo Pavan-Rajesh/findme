@@ -37,7 +37,9 @@ app.post("/makeblur", (req, res) => {
       image.resize(clarity, clarity, jimp.RESIZE_BEZIER);
       image.write(`public/images/${id}target.jpeg`, (err, data) => {
         const mydata = fs.readFileSync(`public/images/${id}target.jpeg`);
-        res.send(mydata);
+        image.getBase64(jimp.MIME_JPEG, (err, data) => {
+          res.send(mydata);
+        });
       });
     })
     .catch((err) => {

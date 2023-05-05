@@ -20,15 +20,19 @@ function init() {
     body: JSON.stringify(data),
   })
     .then((res) => {
-      return res.arrayBuffer();
+      return res.blob();
     })
-    .then((arrayBufferData) => {
-      const base64String = btoa(
-        String.fromCharCode(...new Uint8Array(arrayBufferData))
-      );
-      const imageFromArrayBuffer = `data:image/png;base64,${base64String}`;
-      imagePlace.setAttribute("src", imageFromArrayBuffer);
+    .then((data) => {
+      imagePlace.setAttribute("src", URL.createObjectURL(data));
     });
+  // .then((arrayBufferData) => {
+  //   console.log(arrayBufferData.arrayBuffer());
+  //   const base64String = btoa(
+  //     String.fromCharCode(...new Uint8Array(arrayBufferData))
+  //   );
+  //   const imageFromArrayBuffer = `data:image/png;base64,${base64String}`;
+  //   imagePlace.setAttribute("src", imageFromArrayBuffer);
+  // });
 }
 
 blurButton.addEventListener("click", increaseclarity);
