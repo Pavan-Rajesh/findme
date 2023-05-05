@@ -11,6 +11,7 @@ window.onload = () => {
 };
 
 function init() {
+  URL.revokeObjectURL(imagePlace.src);
   fetch("/makeblur?id=2", {
     method: "POST",
     headers: {
@@ -20,14 +21,10 @@ function init() {
     body: JSON.stringify(data),
   })
     .then((res) => {
-      return res.arrayBuffer();
+      return res.blob();
     })
-    .then((arrayBufferData) => {
-      const base64String = btoa(
-        String.fromCharCode(...new Uint8Array(arrayBufferData))
-      );
-      const imageFromArrayBuffer = `data:image/png;base64,${base64String}`;
-      imagePlace.setAttribute("src", imageFromArrayBuffer);
+    .then((data) => {
+      imagePlace.setAttribute("src", URL.createObjectURL(data));
     });
   const score = localStorage.getItem("score");
   scorePlace.innerHTML = score;
@@ -35,6 +32,7 @@ function init() {
 blurButton.addEventListener("click", increaseclarity);
 
 function increaseclarity(e) {
+  URL.revokeObjectURL(imagePlace.src);
   imagePlace.setAttribute("src", "images/before.jpg");
   console.log(data.imageclarity);
   fetch("/makeblur?id=2", {
@@ -46,15 +44,12 @@ function increaseclarity(e) {
     body: JSON.stringify(data),
   })
     .then((res) => {
-      return res.arrayBuffer();
+      return res.blob();
     })
-    .then((arrayBufferData) => {
-      const base64String = btoa(
-        String.fromCharCode(...new Uint8Array(arrayBufferData))
-      );
-      const imageFromArrayBuffer = `data:image/png;base64,${base64String}`;
-      imagePlace.setAttribute("src", imageFromArrayBuffer);
+    .then((data) => {
+      imagePlace.setAttribute("src", URL.createObjectURL(data));
     });
+
   increaseclarityupdateScore();
   data.imageclarity = data.imageclarity + 10;
   chanceUpdate();
